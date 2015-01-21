@@ -1,0 +1,65 @@
+#include "BoardState.h"
+#include <stdio.h>
+#include <stdlib.h>
+
+void printState (BoardState bs);
+
+int ** bs_state_1;
+int ** bs_state_2;
+int array1 [][] = {
+	{0,1,0,1,4},
+	{2,2,2,5,5},
+	{6,7,8,9,0},
+	{2,3,4,5,1}};
+int array1 [][] = {
+	{0,1,0,1,4},
+	{2,2,2,5,5},
+	{6,7,8,9,0},
+	{2,3,4,5,1}};
+
+
+
+int main (int argc, char ** argv) {
+	printf ("Testing BoardState");
+
+/*	bs_state_1 = (int **) malloc (4*sizeof(int*));
+	bs_state_2 = (int **) malloc (4*sizeof(int*));
+	for (int i=0;i<4;i++) {
+		bs_state_1[i] = (int *) malloc (5*sizeof(int));
+		bs_state_2[i] = (int *) malloc (5*sizeof(int));
+		for (int j=0;j<5;j++) {
+			bs_state1[i] = (
+		}
+	}
+		bs_state_1[0] = {0,1,0,1,4};
+		bs_state_1[1] = {2,2,2,5,5};
+		bs_state_1[2] = {6,7,8,9,0};
+		bs_state_1[3] = {2,3,4,5,1};
+
+		bs_state_2[0] = {0,4,4,4,4};
+		bs_state_2[1] = {4,0,4,4,4};
+		bs_state_2[2] = {4,4,0,4,4};
+		bs_state_2[3] = {4,4,4,0,4};
+*/
+	BoardState * bs_test_1 = new BoardState (array1);
+
+	printf ("BS TEST 1:\n");
+	printState (bs_test_1);
+	BoardState *bs_test_2 = new BoardState (bs_test_1);
+	bs_test_2->setState (4,5,array2);
+
+	printf ("BS TEST 2:\n");
+	printState (bs_test_2);
+	printf ("BS TEST 1:\n");
+	printState (bs_test_1);
+
+}
+void printState (BoardState *bs) {
+	int ** bs_state = bs->getState ();
+	for (int i=0;i<bs->getSize ()[0];i++) {
+		for (int j=0;j<bs->getSize ()[1];j++) {
+			printf ("[%i]", bs_state [i][j]);
+		}
+		printf ("\n");
+	}
+}
